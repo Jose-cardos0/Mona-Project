@@ -13,6 +13,9 @@ import savio from "../assets/savio.png";
 //video
 import videoBg from "../assets/bgmove.mp4";
 
+//toastfy-hot
+// import toast from "react-hot-toast";
+
 export function Home() {
   const imgMona = useRef();
   const imgGuilherme = useRef();
@@ -60,6 +63,7 @@ export function Home() {
       >
         <source src={videoBg} type="video/mp4" />
       </video>
+
       <div
         ref={container}
         className="flex relative flex-col min-w-min w-9/12 m-auto items-center justify-center"
