@@ -1,18 +1,20 @@
 import { useState } from "react";
 import monaLogo from "../assets/mona.png";
 
-//reacticons
+//react-icons
 import { FcCheckmark } from "react-icons/fc";
 import { AiOutlineLeft } from "react-icons/ai";
+
+//router-dom
+import { Link } from "react-router-dom";
 
 export function Agenda() {
   const [selecionado, setSelecionado] = useState();
 
   console.log(selecionado);
 
-  function buttonSelect(id) {
+  function buttonSelect() {
     setSelecionado(!selecionado);
-    console.log(id);
   }
 
   return (
@@ -24,12 +26,14 @@ export function Agenda() {
         bg-neutral-500 rounded-lg shadow-lg"
         >
           <div className="flex items-start justify-start w-full">
-            <button
-              type="submit"
-              class="text-gray-900  bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            >
-              <AiOutlineLeft />
-            </button>
+            <Link to={"/agendamento"}>
+              <button
+                type="submit"
+                class="text-gray-900  bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+              >
+                <AiOutlineLeft />
+              </button>
+            </Link>
           </div>
           <h1>Agendas livres na data selecionada:</h1>
           <div>
@@ -54,28 +58,6 @@ export function Agenda() {
                 }
               >
                 12:00 às 13:00 | <FcCheckmark />
-              </button>
-              <button
-                id="horario-2"
-                onClick={() => buttonSelect()}
-                className={
-                  selecionado === true
-                    ? "flex items-center justify-center gap-1 p-2 mb-2 rounded-md bg-green-400 shadow-lg"
-                    : "flex items-center justify-center gap-1 p-2 mb-2 rounded-md bg-white shadow-lg"
-                }
-              >
-                13:00 às 14:00 | <FcCheckmark />
-              </button>
-              <button
-                id="horario-3"
-                onClick={() => buttonSelect()}
-                className={
-                  selecionado === true
-                    ? "flex items-center justify-center gap-1 p-2 mb-2 rounded-md bg-green-400 shadow-lg"
-                    : "flex items-center justify-center gap-1 p-2 mb-2 rounded-md bg-white shadow-lg"
-                }
-              >
-                14:00 às 15:00 | <FcCheckmark />
               </button>
             </div>
           </div>
