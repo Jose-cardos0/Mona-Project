@@ -1,3 +1,3 @@
 export function Profissionais() {
-  return <h1>Profissionais</h1>;
+  return <h1>horarios</h1>;
 }

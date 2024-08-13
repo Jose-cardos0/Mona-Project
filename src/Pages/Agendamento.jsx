@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../Components/Firebase";
 import { addDoc, collection, doc } from "firebase/firestore";
 
+//toast
+import toast, { Toaster } from "react-hot-toast";
+
 export function Agendamento() {
   const [nomeCliente, setNomeCLiente] = useState();
   const [dataSelecionada, setDataSelecionada] = useState();
@@ -26,8 +29,10 @@ export function Agendamento() {
         servico: servicoSelecionado,
       })
         .then(() => {
-          alert("registrado com sucesso");
-          navegar("/agenda", { replace: true });
+          toast.success("Procurando agendas...");
+          setTimeout(() => {
+            navegar("/agenda", { replace: true });
+          }, 2000);
         })
         .catch((error) => {
           console.log(error);
@@ -49,6 +54,7 @@ export function Agendamento() {
          m-auto items-center justify-center
          p-10"
         >
+          <Toaster position="top-left" reverseOrder={false} />;
           <div className="flex flex-col justify-center">
             <h1 className="text-center text-cyan-50 ">FAÇA SEU AGENDAMENTO</h1>
             <div className="flex items-center justify-center w-full">
