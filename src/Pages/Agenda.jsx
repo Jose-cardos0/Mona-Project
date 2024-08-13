@@ -38,13 +38,16 @@ export function Agenda() {
   return (
     <main className="bg-neutral-700 flex flex-col min-h-svh">
       <section className="flex flex-col items-center justify-center">
+        <h1 className="text-white font-semibold mt-4">
+          Agendas livres na data selecionada:
+        </h1>
         {dataHours
           .filter((item) => item.dataAgendamento === dataSelecionada)
           .map((item, index) => (
             <div
               key={index}
               className="flex flex-col items-center 
-        justify-center m-auto my-10 p-10
+        justify-center m-auto my-3 p-3
         bg-neutral-500 rounded-lg shadow-lg"
             >
               <div>
@@ -52,26 +55,35 @@ export function Agenda() {
                   <Link to={"/agendamento"}>
                     <button
                       type="submit"
-                      class="text-gray-900  bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                      class="text-gray-900  bg-gradient-to-r 
+                      from-red-200 via-red-300 to-yellow-200 
+                      hover:bg-gradient-to-bl focus:ring-4 focus:outline-none 
+                      focus:ring-red-100 dark:focus:ring-red-400 font-medium 
+                      rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                     >
                       <AiOutlineLeft />
                     </button>
                   </Link>
                 </div>
                 <div>
-                  <img className="max-w-40" src={monaLogo} alt="" />
-                </div>
-                <h1>Agendas livres na data selecionada:</h1>
-
-                <div>
-                  <p>Nome: {item.id}</p>
-                  <div>
-                    <p>
-                      Dia: <strong>{dataSelecionada}</strong>
-                    </p>
+                  <div className="flex items-center justify-center mb-2">
+                    <img className="max-w-32" src={monaLogo} alt="" />
                   </div>
                   <div>
-                    <p className="border-b-2 mb-2">Horários disponíveis:</p>
+                    <p>
+                      Profissional: <strong>{item.id}</strong>
+                    </p>
+                    <div>
+                      <p>
+                        Dia: <strong>{dataSelecionada}</strong>
+                      </p>
+                    </div>
+                    <div className="min-w-full">
+                      <p className="border-b-2 mb-2 text-green-500 font-extrabold ">
+                        Horários disponíveis:
+                      </p>
+                    </div>
+
                     <button
                       id="horario-1"
                       onClick={() => buttonSelect()}
