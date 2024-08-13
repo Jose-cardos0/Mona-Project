@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 //img
 import monaLogo from "../assets/mona.png";
@@ -8,15 +8,22 @@ import { useNavigate } from "react-router-dom";
 
 //firestorage
 import { db } from "../Components/Firebase";
-import { addDoc, collection, doc } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 
 //toast
 import toast, { Toaster } from "react-hot-toast";
 
+//context
+import { DataSelecionadaContext } from "../Components/Context";
+
 export function Agendamento() {
   const [nomeCliente, setNomeCLiente] = useState();
-  const [dataSelecionada, setDataSelecionada] = useState();
+
   const [servicoSelecionado, setServicoSelecionado] = useState();
+
+  const { dataSelecionada, setDataSelecionada } = useContext(
+    DataSelecionadaContext
+  );
 
   const navegar = useNavigate();
 
