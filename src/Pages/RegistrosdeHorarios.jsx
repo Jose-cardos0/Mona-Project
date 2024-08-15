@@ -7,6 +7,13 @@ import toast, { Toaster } from "react-hot-toast";
 import { db } from "../Components/Firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 
+//router
+import { Link } from "react-router-dom";
+
+//icons
+import { AiOutlineLeft } from "react-icons/ai";
+import { FcExport } from "react-icons/fc";
+
 export function RegistroHorarios() {
   //state horarios
   const [nomeFuncionario, setNomeFuncionario] = useState("");
@@ -72,19 +79,47 @@ export function RegistroHorarios() {
     <main className="bg-neutral-700 h-screen flex flex-col items-center justify-center">
       <Toaster position="top-left" reverseOrder={false} />;
       <div className="flex flex-col items-center justify-center m-auto w-full">
-        <h1 className="text-center text-white font-bold mt-5">
+        <div className="flex items-start w-5/6">
+          <Link to={"/"}>
+            <button
+              type="submit"
+              class="text-gray-900  bg-gradient-to-r 
+                      from-red-200 via-red-300 to-yellow-200 
+                      hover:bg-gradient-to-bl focus:ring-4 focus:outline-none 
+                      focus:ring-red-100 dark:focus:ring-red-400 font-medium 
+                      rounded-lg text-xs px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"
+            >
+              <AiOutlineLeft />
+            </button>
+          </Link>
+          <Link to={"/"}>
+            <button
+              type="submit"
+              class="text-gray-900  bg-gradient-to-r 
+                      from-red-200 via-red-300 to-yellow-200 
+                      hover:bg-gradient-to-bl focus:ring-4 focus:outline-none 
+                      focus:ring-red-100 dark:focus:ring-red-400 
+                      rounded-lg text-xs px-6 py-2 text-center me-2 mb-2 shadow-md shadow-black"
+            >
+              Exit
+            </button>
+          </Link>
+        </div>
+
+        <h1 className="text-center text-white font-bold ">
           Registro de horários
         </h1>
+
         <form
           onSubmit={handleRegisterHours}
-          className="flex flex-col min-w-full p-10"
+          className="flex flex-col min-w-full p-5"
         >
           <label className="min-w-full mb-2">
             <p className="text-white mt-2">Nome do funcionário:</p>
             <input
               value={nomeFuncionario}
               onChange={(e) => setNomeFuncionario(e.target.value)}
-              className="w-full px-2 rounded-md bg-neutral-400 text-white"
+              className="w-full px-2 rounded-md bg-neutral-400 text-white shadow-md shadow-black"
             />
           </label>
           <label className="min-w-full mb-2">
@@ -93,7 +128,7 @@ export function RegistroHorarios() {
               type="date"
               value={dataAgendamento}
               onChange={(e) => setDataAgendamento(e.target.value)}
-              className="w-full px-2 rounded-md text-white bg-neutral-400"
+              className="w-full px-2 rounded-md text-white bg-neutral-400 shadow-md shadow-black"
             />
           </label>
           <label>
@@ -102,7 +137,7 @@ export function RegistroHorarios() {
               <strong className="text-white">{dataAgendamento}</strong>
             </p>
           </label>
-          <label>
+          <label className="shadow-md shadow-black">
             <input
               className="w-full px-2  bg-neutral-400 rounded-t-lg  text-white font-bold"
               type="time"
@@ -179,7 +214,10 @@ export function RegistroHorarios() {
           </label>
           <button
             type="submit"
-            class="text-gray-900 mt-2 w-full bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            class="text-gray-900 mt-3 w-full bg-gradient-to-r from-red-200
+             via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 
+             focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 
+             font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"
           >
             Cadastrar
           </button>

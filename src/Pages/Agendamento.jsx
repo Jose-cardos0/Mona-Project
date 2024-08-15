@@ -5,6 +5,11 @@ import monaLogo from "../assets/mona.png";
 
 //links
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+//react-icons
+import { FcCheckmark, FcApproval } from "react-icons/fc";
+import { AiOutlineLeft } from "react-icons/ai";
 
 //firestorage
 import { db } from "../Components/Firebase";
@@ -61,6 +66,18 @@ export function Agendamento() {
          m-auto items-center justify-center
          p-10"
         >
+          <Link to={"/"}>
+            <button
+              type="submit"
+              class="text-gray-900  bg-gradient-to-r 
+                      from-red-200 via-red-300 to-yellow-200 
+                      hover:bg-gradient-to-bl focus:ring-4 focus:outline-none 
+                      focus:ring-red-100 dark:focus:ring-red-400 font-medium 
+                      rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"
+            >
+              <AiOutlineLeft />
+            </button>
+          </Link>
           <Toaster position="top-left" reverseOrder={false} />;
           <div className="flex flex-col justify-center">
             <h1 className="text-center text-cyan-50 ">FAÇA SEU AGENDAMENTO</h1>
@@ -72,7 +89,7 @@ export function Agendamento() {
               <input
                 type="text"
                 placeholder="Digite seu nome..."
-                className="p-2 mb-2 bg-neutral-700 border-b-2"
+                className="p-2 mb-2 bg-neutral-700 border-b-2 text-white uppercase"
                 required
                 value={nomeCliente}
                 onChange={(e) => setNomeCLiente(e.target.value)}
