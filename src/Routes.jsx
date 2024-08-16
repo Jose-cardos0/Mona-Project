@@ -10,6 +10,8 @@ import { NotFound } from "./pages/NotFound";
 import { Admin } from "./Pages/Admin";
 import { RegistroHorarios } from "./Pages/RegistrosdeHorarios";
 
+import { Protect } from "./Components/Protect";
+
 const RoutesApp = () => {
   return (
     <BrowserRouter>
@@ -19,7 +21,15 @@ const RoutesApp = () => {
         <Route path="/profissionais" element={<Profissionais />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/adminregistros" element={<RegistroHorarios />} />
+
+        <Route
+          path="/adminregistros"
+          element={
+            <Protect>
+              <RegistroHorarios />
+            </Protect>
+          }
+        />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
