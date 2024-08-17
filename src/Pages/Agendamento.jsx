@@ -26,9 +26,12 @@ export function Agendamento() {
 
   const [servicoSelecionado, setServicoSelecionado] = useState();
 
-  const { dataSelecionada, setDataSelecionada } = useContext(
-    DataSelecionadaContext
-  );
+  const {
+    dataSelecionada,
+    setDataSelecionada,
+    setRenderNomeCliente,
+    setRenderServico,
+  } = useContext(DataSelecionadaContext);
 
   const navegar = useNavigate();
 
@@ -45,6 +48,8 @@ export function Agendamento() {
           setTimeout(() => {
             navegar("/agenda", { replace: true });
           }, 2000);
+          setRenderNomeCliente(nomeCliente);
+          setRenderServico(servicoSelecionado);
         })
         .catch((error) => {
           console.log(error);
@@ -55,14 +60,14 @@ export function Agendamento() {
   }
 
   return (
-    <section>
+    <section className="min-h-screen">
       <div
-        className="flex flex-col h-screen w-screen 
+        className="flex flex-col min-h-screen w-screen 
       items-center justify-center mx-auto
       bg-neutral-700"
       >
         <main
-          className="w-screen h-screen
+          className="w-screen min-h-screen
          m-auto items-center justify-center
          p-10"
         >

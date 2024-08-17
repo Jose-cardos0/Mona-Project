@@ -4,6 +4,7 @@ import monaLogo from "../assets/mona.png";
 // react-icons
 import { FcCheckmark, FcApproval } from "react-icons/fc";
 import { AiOutlineLeft } from "react-icons/ai";
+import { FaWhatsapp } from "react-icons/fa";
 
 // router-dom
 import { Link } from "react-router-dom";
@@ -16,7 +17,9 @@ import { DataSelecionadaContext } from "../Components/Context";
 export function Agenda() {
   const [dataHours, setDataHours] = useState([]);
   const [selectedTime, setSelectedTime] = useState({});
-  const { dataSelecionada } = useContext(DataSelecionadaContext);
+  const { dataSelecionada, renderNomeCliente, renderServico } = useContext(
+    DataSelecionadaContext
+  );
 
   const getHours = useCallback(async () => {
     const querySnapshot = await getDocs(collection(db, "horarios"));
@@ -48,10 +51,42 @@ export function Agenda() {
     });
   }
 
-  function handleAgendar() {
+  function handleAgendar(item) {
+    const dadosItem = [item];
+
+    const dataList = [];
+    dadosItem.map((prevItem) => {
+      let objectlist = {
+        data: prevItem.dataAgendamento,
+        nomeFuncionario: prevItem.id,
+        nomeCliente: renderNomeCliente,
+        servicoSelecionado: renderServico,
+      };
+
+      dataList.push(objectlist);
+    });
+
+    const message = dataList
+      .map((msg) => {
+        return (
+          `Novo agendamento realizado\n` +
+          `Data do atendimento: ${msg.data}\n` +
+          `Horário selecionado: ${msg.data}\n` +
+          `Tipo de serviço: ${msg.servicoSelecionado}\n` +
+          `Nome do cliente: ${msg.nomeCliente}\n` +
+          `Nome do funcionário: ${msg.nomeFuncionario}`
+        );
+      })
+      .join("");
+
+    const phone = "7999902479";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+
     setDataHours((prevDataHours) =>
       prevDataHours.map((item) => {
         if (selectedTime[item.id]) {
+          console.log(item);
           const newItem = { ...item };
           delete newItem[selectedTime[item.id]];
           // Atualiza o documento do Firebase
@@ -69,8 +104,27 @@ export function Agenda() {
   return (
     <main className="bg-neutral-700 flex flex-col min-h-svh w-screen">
       <section className="flex flex-col items-center justify-center w-full">
-        <h1 className="text-white font-semibold mt-4">
-          Agendas livres na data selecionada:
+        <div className="flex items-start justify-start w-5/6 mt-4">
+          <Link to={"/agendamento"}>
+            <button
+              type="button"
+              className="text-gray-900 bg-gradient-to-r
+             from-red-200 via-red-300 to-yellow-200 
+             hover:bg-gradient-to-bl focus:ring-4 focus:outline-none
+              focus:ring-red-100 dark:focus:ring-red-400 font-medium
+               rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 shadow-md
+                shadow-black "
+            >
+              <AiOutlineLeft />
+            </button>
+          </Link>
+        </div>
+        <h1 className="text-white font-semibold mt-1">
+          {dataHours <= 0 ? (
+            <h1>Nem um horário encontrado.</h1>
+          ) : (
+            <h1>Agendas livres na data selecionada:</h1>
+          )}
         </h1>
         {dataHours
           .filter((item) => item.dataAgendamento === dataSelecionada)
@@ -80,16 +134,6 @@ export function Agenda() {
               className="flex flex-col items-center justify-center m-auto my-3 p-3 bg-neutral-500 rounded-lg  w-5/6  shadow-md shadow-black"
             >
               <div className="w-full">
-                <div className="flex items-start justify-start w-full">
-                  <Link to={"/agendamento"}>
-                    <button
-                      type="button"
-                      className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"
-                    >
-                      <AiOutlineLeft />
-                    </button>
-                  </Link>
-                </div>
                 <div>
                   <div className="flex items-center justify-center mb-2">
                     <img className="max-w-32" src={monaLogo} alt="" />
@@ -143,12 +187,46 @@ export function Agenda() {
                     </div>
                   </div>
                   <div className="flex w-full items-center justify-end">
-                    <button
-                      onClick={handleAgendar}
-                      className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"
-                    >
-                      Agendar
-                    </button>
+                    {[
+                      "horasAgendamento1",
+                      "horasAgendamento2",
+                      "horasAgendamento3",
+                      "horasAgendamento4",
+                      "horasAgendamento5",
+                      "horasAgendamento6",
+                      "horasAgendamento7",
+                      "horasAgendamento8",
+                      "horasAgendamento9",
+                      "horasAgendamento10",
+                      "horasAgendamento11",
+                      "horasAgendamento12",
+                    ].every((hourKey) => item[hourKey] === "") ? (
+                      <button
+                        disabled={true}
+                        className="text-gray-900 
+                        bg-gradient-to-r from-red-200 via-red-300
+                         to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 
+                         focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 
+                         font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 
+                         shadow-md shadow-black w-full"
+                      >
+                        Sem Horários disponíveis
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => handleAgendar(item)}
+                        className="text-gray-900 
+                        bg-gradient-to-r from-red-200
+                         via-red-300 to-yellow-200 
+                         hover:bg-gradient-to-bl focus:ring-4 
+                         focus:outline-none focus:ring-red-100
+                          dark:focus:ring-red-400 font-medium rounded-lg 
+                          text-sm px-5 py-2.5 text-center me-2 mb-2 
+                          shadow-md shadow-black flex justify-center items-center gap-1"
+                      >
+                        Agendar <FaWhatsapp color="green" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

@@ -29,7 +29,10 @@ export function Admin() {
 
     await signInWithEmailAndPassword(auth, login, password)
       .then(() => {
-        toast.success("Logado com sucesso!");
+        setTimeout(() => {
+          toast.success("Logado com sucesso!");
+        }, [1000]);
+
         navigate("/adminregistros");
       })
       .catch((error) => {

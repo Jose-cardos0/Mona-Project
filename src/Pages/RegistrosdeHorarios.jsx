@@ -80,14 +80,13 @@ export function RegistroHorarios() {
       .then(() => {
         setTimeout(() => {
           toast.success("Deslogado com sucesso!");
-        }, [2000]);
+        }, [1000]);
       })
       .catch((error) => {
         console.error(error.message);
       });
   }
 
-  console.log(data);
   return (
     <main className="bg-neutral-700 h-screen flex flex-col items-center justify-center">
       <Toaster position="top-left" reverseOrder={false} />;
