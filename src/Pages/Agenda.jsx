@@ -69,12 +69,12 @@ export function Agenda() {
     const message = dataList
       .map((msg) => {
         return (
-          `Novo agendamento realizado\n` +
-          `Data do atendimento: ${msg.data}\n` +
-          `Horário selecionado: ${msg.data}\n` +
-          `Tipo de serviço: ${msg.servicoSelecionado}\n` +
-          `Nome do cliente: ${msg.nomeCliente}\n` +
-          `Nome do funcionário: ${msg.nomeFuncionario}`
+          `✨✨✨✨Novo agendamento realizado✨✨✨✨\n ` +
+          `📅 - Data do atendimento: ${msg.data}\n` +
+          `🕓 - Horário selecionado: ${msg.data}\n` +
+          `📝 - Tipo de serviço: ${msg.servicoSelecionado}\n` +
+          `😁 - Nome do cliente: ${msg.nomeCliente}\n` +
+          `🙎🏻‍♂️ - Nome do funcionário: ${msg.nomeFuncionario}`
         );
       })
       .join("");

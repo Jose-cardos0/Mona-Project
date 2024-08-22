@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import mona from "../assets/mona.png";
 import gui from "../assets/gui.png";
 import savio from "../assets/savio.png";
+import manu from "../assets/manu.png";
 //video
 import videoBg from "../assets/bgmove.mp4";
 
@@ -20,6 +21,7 @@ export function Home() {
   const imgMona = useRef();
   const imgGuilherme = useRef();
   const imgSavio = useRef();
+  const imgManu = useRef();
   const container = useRef();
   const videoRef = useRef();
 
@@ -42,6 +44,13 @@ export function Home() {
                 opacity: 1,
                 left: 125,
                 duration: 2,
+                onComplete: () => {
+                  gsap.to(imgManu.current, {
+                    opacity: 1,
+                    left: 125,
+                    duration: 2,
+                  });
+                },
               });
             },
           });
@@ -84,6 +93,12 @@ export function Home() {
           ref={imgSavio}
           className="max-w-40 mt-5 opacity-0"
           src={savio}
+          alt=""
+        />
+        <img
+          ref={imgManu}
+          className="max-w-36 my-5 opacity-0"
+          src={manu}
           alt=""
         />
       </div>
