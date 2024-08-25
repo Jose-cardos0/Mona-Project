@@ -17,7 +17,8 @@ import { FcExport } from "react-icons/fc";
 
 export function RegistroHorarios() {
   //state horarios
-  const [nomeFuncionario, setNomeFuncionario] = useState("");
+  const [funcionario, setFuncionario] = useState();
+  const [nomeFuncionario, setNomeFuncionario] = useState(funcionario);
   const [dataAgendamento, setDataAgendamento] = useState("");
   const [horasAgendamento1, setHorasAgendamento1] = useState("");
   const [horasAgendamento2, setHorasAgendamento2] = useState("");
@@ -88,9 +89,9 @@ export function RegistroHorarios() {
   }
 
   return (
-    <main className="bg-neutral-700 h-screen flex flex-col items-center justify-center">
+    <main className="bg-neutral-700 h-screen flex flex-col items-center justify-center ">
       <Toaster position="top-left" reverseOrder={false} />;
-      <div className="flex flex-col items-center justify-center m-auto w-full">
+      <div className="flex flex-col items-center justify-center m-auto w-full sm:max-w-screen-sm">
         <div className="flex items-start w-5/6">
           <Link to={"/"}>
             <button
@@ -126,10 +127,23 @@ export function RegistroHorarios() {
         >
           <label className="min-w-full mb-2">
             <p className="text-white mt-2">Nome do funcionário:</p>
+            <select
+              className="w-full px-2 rounded-md
+               bg-neutral-400 text-white shadow-md
+              shadow-black"
+              value={nomeFuncionario}
+              onChange={(e) => setNomeFuncionario(e.target.value)}
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="Monaina">Monaina</option>
+              <option value="Manuela">Manuela</option>
+              <option value="Guilherme">Guilherme</option>
+              <option value="Savio">Savio</option>
+            </select>
             <input
               value={nomeFuncionario}
               onChange={(e) => setNomeFuncionario(e.target.value)}
-              className="w-full px-2 rounded-md bg-neutral-400 text-white shadow-md shadow-black"
+              className=" hidden w-full px-2 rounded-md bg-neutral-400 text-white shadow-md shadow-black"
             />
           </label>
           <label className="min-w-full mb-2">

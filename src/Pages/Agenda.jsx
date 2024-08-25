@@ -14,6 +14,13 @@ import { db } from "../Components/Firebase";
 // context
 import { DataSelecionadaContext } from "../Components/Context";
 
+//imgs
+import logoManu from "../assets/manu.png";
+import logoMona from "../assets/mona.png";
+import logoGui from "../assets/gui.png";
+import logoSavio from "../assets/savio.png";
+import logoCm from "../assets/cmLogo.png";
+
 export function Agenda() {
   const [dataHours, setDataHours] = useState([]);
   const [selectedTime, setSelectedTime] = useState({});
@@ -69,12 +76,12 @@ export function Agenda() {
     const message = dataList
       .map((msg) => {
         return (
-          `✨✨✨✨Novo agendamento realizado✨✨✨✨\n ` +
-          `📅 - Data do atendimento: ${msg.data}\n` +
-          `🕓 - Horário selecionado: ${msg.data}\n` +
+          `😊 Novo agendamento realizado 🚀🚀 \n ` +
+          `🗓️ - Data do atendimento: ${msg.data}\n` +
+          `🕐 - Horário selecionado: ${msg.data}\n` +
           `📝 - Tipo de serviço: ${msg.servicoSelecionado}\n` +
-          `😁 - Nome do cliente: ${msg.nomeCliente}\n` +
-          `🙎🏻‍♂️ - Nome do funcionário: ${msg.nomeFuncionario}`
+          `😊 - Nome do cliente: ${msg.nomeCliente}\n` +
+          `😎 - Nome do funcionário: ${msg.nomeFuncionario}`
         );
       })
       .join("");
@@ -136,7 +143,21 @@ export function Agenda() {
               <div className="w-full">
                 <div>
                   <div className="flex items-center justify-center mb-2">
-                    <img className="max-w-32" src={monaLogo} alt="" />
+                    <img
+                      className="max-w-32 mt-3"
+                      src={
+                        item.id == "Manuela"
+                          ? logoManu
+                          : item.id == "Monaina"
+                          ? logoMona
+                          : item.id == "Savio"
+                          ? logoSavio
+                          : item.id == "Guilherme"
+                          ? logoGui
+                          : logoCm
+                      }
+                      alt=""
+                    />
                   </div>
                   <div>
                     <p>

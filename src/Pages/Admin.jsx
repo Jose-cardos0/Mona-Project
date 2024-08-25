@@ -46,7 +46,7 @@ export function Admin() {
 
   return (
     <main className="bg-neutral-700 flex flex-col min-h-screen w-full">
-      <section className="flex flex-col items-center justify-center m-auto min-w-full p-10">
+      <section className="flex flex-col items-center justify-center min-w-full min-h-full p-10">
         <div className="w-full">
           <Link to={"/"}>
             <button
@@ -71,12 +71,15 @@ export function Admin() {
           <div className="text-center text-white font-bold mt-5">
             Faça seu login:
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col mt-5">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col mt-5 sm:w-96 sm:m-auto"
+          >
             <input
               type="text"
               value={login}
               onChange={(e) => setLogin(e.target.value)}
-              className=" text-cyan-50 outline-none
+              className=" text-cyan-50 outline-none 
                rounded-md p-2 bg-transparent border-b-2
                focus:border-b-4 focus:border-orange-300 focus:bg-transparent 
                focus:outlines-none  shadow-md shadow-black
@@ -88,7 +91,7 @@ export function Admin() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className=" text-cyan-50 
+              className=" text-cyan-50  
               outline-none rounded-md p-2 bg-transparent border-b-2
               focus:border-b-4 focus:border-orange-300 focus:bg-transparent shadow-md shadow-black "
               placeholder="Digite sua senha..."
@@ -96,7 +99,7 @@ export function Admin() {
 
             <button
               type="submit"
-              class="text-gray-900 w-full mt-5 bg-gradient-to-r from-red-200
+              class="text-gray-900 w-full mt-5 bg-gradient-to-r from-red-200 
                  via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 
                  focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium 
                  rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"

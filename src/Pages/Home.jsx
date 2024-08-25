@@ -11,6 +11,7 @@ import mona from "../assets/mona.png";
 import gui from "../assets/gui.png";
 import savio from "../assets/savio.png";
 import manu from "../assets/manu.png";
+import logoCm from "../assets/cmlogo.png";
 //video
 import videoBg from "../assets/bgmove.mp4";
 
@@ -24,6 +25,7 @@ export function Home() {
   const imgManu = useRef();
   const container = useRef();
   const videoRef = useRef();
+  const cmLogo = useRef();
 
   const useLogoLayoutEffect =
     typeof window === "undefined" ? useLayoutEffect : useEffect;
@@ -33,22 +35,61 @@ export function Home() {
       gsap.to(imgMona.current, {
         opacity: 1,
         left: 125,
-        duration: 2,
+        duration: 1,
         onComplete: () => {
           gsap.to(imgGuilherme.current, {
             opacity: 1,
             left: 125,
-            duration: 2,
+            duration: 1,
             onComplete: () => {
               gsap.to(imgSavio.current, {
                 opacity: 1,
                 left: 125,
-                duration: 2,
+                duration: 1,
                 onComplete: () => {
                   gsap.to(imgManu.current, {
                     opacity: 1,
                     left: 125,
-                    duration: 2,
+                    duration: 1,
+
+                    onComplete: () => {
+                      gsap.to(imgMona.current, {
+                        opacity: 0,
+                        left: 125,
+                        duration: 1,
+                        onComplete: () => {
+                          gsap.to(imgGuilherme.current, {
+                            opacity: 0,
+                            left: 125,
+                            duration: 1,
+                            onComplete: () => {
+                              gsap.to(imgSavio.current, {
+                                opacity: 0,
+                                left: 125,
+                                duration: 1,
+                                onComplete: () => {
+                                  gsap.to(imgManu.current, {
+                                    opacity: 0,
+                                    left: 125,
+                                    duration: 1,
+                                    onComplete: () => {
+                                      gsap.to(cmLogo.current, {
+                                        xPercent: -50,
+                                        yPercent: -50,
+                                        opacity: 1,
+                                        left: "50%",
+                                        top: "50%",
+                                        duration: 1,
+                                      });
+                                    },
+                                  });
+                                },
+                              });
+                            },
+                          });
+                        },
+                      });
+                    },
                   });
                 },
               });
@@ -75,7 +116,7 @@ export function Home() {
 
       <div
         ref={container}
-        className="flex relative flex-col min-w-min w-9/12 m-auto items-center justify-center"
+        className="flex relative flex-col min-w-min w-9/12 m-auto items-center justify-center "
       >
         <img
           ref={imgMona}
@@ -100,6 +141,12 @@ export function Home() {
           className="max-w-36 my-5 opacity-0"
           src={manu}
           alt=""
+        />
+        <img
+          ref={cmLogo}
+          src={logoCm}
+          alt=""
+          className="max-w-80 min-w-36 my-5 opacity-0 absolute sm:max-w-96"
         />
       </div>
       <div className="flex items-center justify-center mb-10 z-50">

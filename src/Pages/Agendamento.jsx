@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 
 //img
-import monaLogo from "../assets/mona.png";
+import cmLogo from "../assets/cmlogo.png";
 
 //links
 import { useNavigate } from "react-router-dom";
@@ -84,13 +84,13 @@ export function Agendamento() {
             </button>
           </Link>
           <Toaster position="top-left" reverseOrder={false} />;
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center mt-3">
             <h1 className="text-center text-cyan-50 ">FAÇA SEU AGENDAMENTO</h1>
-            <div className="flex items-center justify-center w-full">
-              <img className="max-w-60 " src={monaLogo} alt="" />
+            <div className="flex items-center justify-center w-full mt-3">
+              <img className="max-w-60 " src={cmLogo} alt="" />
             </div>
 
-            <form onSubmit={registroDeDados} className="flex flex-col">
+            <form onSubmit={registroDeDados} className="flex flex-col mt-3">
               <input
                 type="text"
                 placeholder="Digite seu nome..."
