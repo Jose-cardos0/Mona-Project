@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
-import monaLogo from "../assets/mona.png";
 
 // react-icons
 import { FcCheckmark, FcApproval } from "react-icons/fc";

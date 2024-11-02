@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 //firebase
 import { auth, db } from "../Components/Firebase";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 
 //router
@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 
 //icons
 import { AiOutlineLeft } from "react-icons/ai";
-import { FcExport } from "react-icons/fc";
 
 export function RegistroHorarios() {
   //state horarios

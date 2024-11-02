@@ -1,12 +1,6 @@
 import { db } from "../Components/Firebase";
 import { useEffect, useState } from "react";
-import {
-  doc,
-  getDoc,
-  collection,
-  getDocs,
-  deleteDoc,
-} from "firebase/firestore";
+import { doc, collection, getDocs, deleteDoc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { AiOutlineLeft } from "react-icons/ai";
 import { IoTrashBinOutline } from "react-icons/io5";

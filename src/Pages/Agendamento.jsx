@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 //react-icons
-import { FcCheckmark, FcApproval } from "react-icons/fc";
 import { AiOutlineLeft } from "react-icons/ai";
 
 //firestorage
