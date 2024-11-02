@@ -18,7 +18,7 @@ import logoManu from "../assets/manu.png";
 import logoMona from "../assets/mona.png";
 import logoGui from "../assets/gui.png";
 import logoSavio from "../assets/savio.png";
-import logoCm from "../assets/cmLogo.png";
+import logoCm from "../assets/cmlogo.png";
 
 export function Agenda() {
   const [dataHours, setDataHours] = useState([]);
