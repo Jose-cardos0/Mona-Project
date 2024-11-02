@@ -68,130 +68,92 @@ export function AgendasAbertas() {
   }
 
   return (
-    <main
-      className="bg-neutral-700 h-screen flex flex-col
-     items-center justify-center "
-    >
-      <section className=" flex-col items-center justify-center max-md:w-10/12 max-md:h-5/6">
-        <div className="flex items-center justify-between  ">
+    <main className="bg-gray-800 h-screen flex flex-col items-center justify-center">
+      <section className="flex-col items-center justify-center max-md:w-10/12 max-md:h-5/6">
+        <div className="flex items-center justify-between mb-4">
           <Link to={"/adminregistros"}>
             <button
               className="text-gray-900  bg-gradient-to-r 
                       from-red-200 via-red-300 to-yellow-200 
                       hover:bg-gradient-to-bl focus:ring-4 focus:outline-none 
                       focus:ring-red-100 dark:focus:ring-red-400 font-medium 
-                      rounded-lg text-xs px-5 py-2.5 text-center  shadow-md shadow-black"
+                      rounded-lg cursor-pointer
+                      text-xs px-5 py-2.5 text-center me-2 mb-2 shadow-md shadow-black"
             >
               <AiOutlineLeft />
             </button>
           </Link>
-          <h1 className="text-3xl text-white font-bold ">Agendas abertas</h1>
+          <h1 className="text-3xl text-white font-bold">Agendas abertas</h1>
         </div>
 
-        <table
-          className="border-collapse border-white bg-neutral-400
-       my-20 shadow-md shadow-black"
-        >
+        <table className="border-collapse border border-gray-600 bg-gray-700 w-full shadow-lg">
           <thead>
-            <tr className=" ">
-              <th className="p-3 text-left border-b-2 border-white text-white">
-                Funcionário
-              </th>
-              <th className="p-3 text-left border-b-2 border-white text-white">
-                H1
-              </th>
-              <th className="p-3 text-left border-b-2 border-white text-white">
-                H2
-              </th>
-              <th className="p-3 text-left border-b-2 border-white text-white">
-                H3
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H4
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H5
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H6
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H7
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H8
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H9
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H10
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H11
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                H12
-              </th>
-              <th className="p-3 text-left border-b-2 border-white  text-white">
-                Ações
-              </th>
+            <tr className="bg-gray-600 text-white">
+              <th className="p-3 border-b border-gray-500">Funcionário</th>
+              <th className="p-3 border-b border-gray-500">H1</th>
+              <th className="p-3 border-b border-gray-500">H2</th>
+              <th className="p-3 border-b border-gray-500">H3</th>
+              <th className="p-3 border-b border-gray-500">H4</th>
+              <th className="p-3 border-b border-gray-500">H5</th>
+              <th className="p-3 border-b border-gray-500">H6</th>
+              <th className="p-3 border-b border-gray-500">H7</th>
+              <th className="p-3 border-b border-gray-500">H8</th>
+              <th className="p-3 border-b border-gray-500">H9</th>
+              <th className="p-3 border-b border-gray-500">H10</th>
+              <th className="p-3 border-b border-gray-500">H11</th>
+              <th className="p-3 border-b border-gray-500">H12</th>
+              <th className="p-3 border-b border-gray-500">Ações</th>
             </tr>
           </thead>
           <tbody>
             {documentData.map((horarios) => (
               <tr
-                key={doc.id}
-                className=" even:bg-gray-300 hover:bg-red-200 border-b-2 border-white"
+                key={horarios.id}
+                className="even:bg-gray-600 hover:bg-gray-500 transition duration-300"
               >
-                <td className="p-3 text-left  border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.id}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento1}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento2}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento3}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento4}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento5}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento6}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento7}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento8}
                 </td>
-                <td className="p-3 text-left  border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento9}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento10}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento11}
                 </td>
-                <td className="p-3 text-left   border-white cursor-pointer hover:bg-red-400 border-l-2 border-r-2">
+                <td className="p-3 border-b border-gray-500 text-white">
                   {horarios.horasAgendamento12}
                 </td>
-
-                <td
-                  className=" p-3
-                 cursor-pointer border-r-2 text-center hover:bg-red-400 bg-red-300
-                 "
-                >
+                <td className="p-3 border-b border-gray-500 text-center">
                   <button
                     onClick={() => handleRemoveAgend(horarios.id)}
-                    className=" flex items-center justify-center text-center gap-1 text-white font-bold"
+                    className="flex items-center justify-center gap-1 text-white bg-red-500 hover:bg-red-600 rounded-lg px-2 py-1 transition duration-300"
                   >
                     Excluir <IoTrashBinOutline />
                   </button>
