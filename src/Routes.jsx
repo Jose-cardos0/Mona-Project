@@ -9,6 +9,7 @@ import { Agenda } from "./Pages/Agenda";
 import { NotFound } from "./pages/NotFound";
 import { Admin } from "./Pages/Admin";
 import { RegistroHorarios } from "./Pages/RegistrosdeHorarios";
+import { AgendasAbertas } from "./Pages/agendasAbertas";
 
 import { Protect } from "./Components/Protect";
 
@@ -21,12 +22,14 @@ const RoutesApp = () => {
         <Route path="/profissionais" element={<Profissionais />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/agendasAbertas" element={<AgendasAbertas />} />
 
         <Route
           path="/adminregistros"
           element={
             <Protect>
               <RegistroHorarios />
+              <AgendasAbertas />
             </Protect>
           }
         />

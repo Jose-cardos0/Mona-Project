@@ -115,6 +115,18 @@ export function RegistroHorarios() {
           >
             Sair
           </button>
+          <Link to={"/agendasAbertas"}>
+            <button
+              onClick={handleExit}
+              class="text-gray-900  bg-gradient-to-r 
+                      from-red-200 via-red-300 to-yellow-200 
+                      hover:bg-gradient-to-bl focus:ring-4 focus:outline-none 
+                      focus:ring-red-100 dark:focus:ring-red-400 
+                      rounded-lg text-xs px-6 py-2 text-center me-2 mb-2 shadow-md shadow-black"
+            >
+              Acessar agenda
+            </button>
+          </Link>
         </div>
 
         <h1 className="text-center text-white font-bold ">
