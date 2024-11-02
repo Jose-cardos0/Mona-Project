@@ -6,11 +6,10 @@ import { Home } from "./Pages/Home";
 import { Agendamento } from "./Pages/Agendamento";
 
 import { Agenda } from "./Pages/Agenda";
-import { NotFound } from "./pages/NotFound";
+// import { NotFound } from "./Pages/NotFound";
 import { Admin } from "./Pages/Admin";
 import { RegistroHorarios } from "./Pages/RegistrosdeHorarios";
 import { AgendasAbertas } from "./Pages/agendasAbertas";
-
 import { Protect } from "./Components/Protect";
 
 const RoutesApp = () => {
@@ -33,7 +32,7 @@ const RoutesApp = () => {
           }
         />
 
-        <Route path="*" element={<NotFound />} />
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );
